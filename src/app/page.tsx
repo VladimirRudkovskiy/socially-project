@@ -1,5 +1,6 @@
 
 import CreatePost from "@/components/CreatePost";
+import WhoToFollow from "@/components/WhoToFollow";
 import prisma from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs/server";
 
@@ -12,7 +13,7 @@ export default async function Home() {
 			</div>
 
 			<div className="lg:block sm:hidden lg:col-span-4 sticky top-20">
-				Who to follow
+				<WhoToFollow />
 			</div>
 		</div>
 	);
