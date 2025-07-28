@@ -68,3 +68,14 @@ export async function markNotificationsAsRead(notificationIds: string[]) {
 		return { success: false };
 	}
 }
+
+export async function getUnreadNotificationStatus(userId: string): Promise<boolean> {
+  const unreadCount = await prisma.notification.count({
+    where: {
+      userId,
+      read: false,
+    },
+  });
+
+  return unreadCount > 0;
+}
